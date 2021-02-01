@@ -15,12 +15,12 @@
     </div>
     <nav>
         <ul>
-            <li>Home</li>
-            <li>Videos</li>
-            <li>Calendar</li>
-            <li>Study Tips</li>
-            <li>Social Media</li>
-            <li>About</li>
+            <li><a href="{% url 'svhome:index' %}">Home</a></li>
+            <li><a href="https://www.youtube.com/c/StudyVibes">Videos</a></li>
+            <li><a href="{% url 'svhome:calendar' %}">Calendar</a></li>
+            <li><a href="{% url 'svhome:study-tips' %}">Study Tips</a></li>
+            <li><a href="{% url 'svhome:social-media' %}">Socia Medial</a></li>
+            <li><a href="{% url 'svhome:about' %}">About</a></li>
         </ul>
     </nav>
 
