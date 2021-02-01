@@ -17,24 +17,9 @@ from dotenv import load_dotenv
 from pathlib import Path
 
 
-if 'RUNNING_LOCALLY' in environ:
-    load_dotenv()
-    db_default = {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': environ.get("DB_NAME"),
-        'USER': environ.get("DB_USER"),
-        'PASSWORD': environ.get("DB_PASS"),
-        'HOST': environ.get("DB_HOST"),
-        'PORT': environ.get("DB_PORT")
-    }
-else:
-    db_default = {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': "studyvibes$StudyVibes",
-        'USER': "studyvibes",
-        'PASSWORD': '@J@Zf2LE3n3wHDz',
-        'HOST': "studyvibes.mysql.pythonanywhere-services.com",
-    }
+
+load_dotenv()
+running_locally = 'RUNNING_LOCALLY' in environ
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -48,7 +33,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'b^ghg8hth707kre$v*07aa6q+yus!razn)usyb9=70mc2-_jt5'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = running_locally
 
 ALLOWED_HOSTS = []
 
@@ -98,6 +83,24 @@ WSGI_APPLICATION = 'svweb.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
+
+if running_locally:
+    db_default = {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': environ.get("DB_NAME"),
+        'USER': environ.get("DB_USER"),
+        'PASSWORD': environ.get("DB_PASS"),
+        'HOST': environ.get("DB_HOST"),
+        'PORT': environ.get("DB_PORT")
+    }
+else:
+    db_default = {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': "studyvibes$StudyVibes",
+        'USER': "studyvibes",
+        'PASSWORD': '@J@Zf2LE3n3wHDz',
+        'HOST': "studyvibes.mysql.pythonanywhere-services.com",
+    }
 
 DATABASES = {
     'default': db_default
