@@ -31,11 +31,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'b^ghg8hth707kre$v*07aa6q+yus!razn)usyb9=70mc2-_jt5'
+if not running_locally:
+    SECRET_KEY = environ.get("SV_SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = running_locally
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'studyvibes.pythonanywhere.com'
+]
 
 
 # Application definition
@@ -98,7 +102,7 @@ else:
         'ENGINE': 'django.db.backends.mysql',
         'NAME': "studyvibes$StudyVibes",
         'USER': "studyvibes",
-        'PASSWORD': '@J@Zf2LE3n3wHDz',
+        'PASSWORD': environ.get("DB_KEY"),
         'HOST': "studyvibes.mysql.pythonanywhere-services.com",
     }
 
