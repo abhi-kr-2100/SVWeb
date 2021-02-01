@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 
 from os import environ
+from os import path
 from dotenv import load_dotenv
 
 from pathlib import Path
@@ -149,3 +150,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = path.join(BASE_DIR, "svhome/static")
