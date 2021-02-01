@@ -1,9 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
 body {
     margin: 0;
     padding: 0;
 
     display: flex;
     flex-direction: column;
+
+    font-family: 'Raleway', sans-serif;
 }
 
 #banner {
@@ -32,6 +36,18 @@ nav ul {
 nav ul li {
     display: inline-block;
     padding: 1.5em;
+
+    font-size: larger;
+}
+
+nav ul li a {
+    text-decoration: none;
+}
+
+
+nav ul li:hover {
+    background-color: #9ff6ed;
+    cursor: pointer;
 }
 
 main {
