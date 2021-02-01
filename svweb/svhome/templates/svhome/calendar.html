@@ -1,1 +1,13 @@
-<h1>The Study Calendar</h1>
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}Study Calendar{% endblock %}
+
+{% block stylesheet %}
+{% static 'svhome/calendar.css' %}
+{% endblock %}
+
+{% block content %}
+<p id="welcome">This is the Study Calendar.</p>
+{% endblock %}

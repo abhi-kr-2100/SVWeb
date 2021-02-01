@@ -17,16 +17,16 @@ def calendar(request):
 def study_tips(request):
     """Display a list of saved study tips."""
 
-    return HttpResponse("Not implemented yet.")
+    return render(request, 'svhome/study_tips.html', {})
 
 
 def social_media(request):
     """Display a list of social media on which Study Vibes is active."""
 
-    return HttpResponse("Not implemented yet.")
+    return render(request, 'svhome/social_media.html', {})
 
 
 def about(request):
     "About Study Vibes."
 
-    return HttpResponse("Not implemented yet.")
+    return render(request, 'svhome/about.html', {})
