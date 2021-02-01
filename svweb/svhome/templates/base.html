@@ -11,20 +11,18 @@
 
 <body>
     <div id="banner">
+        <img src="{% static 'images/banner.jpeg' %}">
     </div>
-    <header>
-        <h1>Study Vibes</h1>
-        <nav>
-            <ul>
-                <li>Home</li>
-                <li>Videos</li>
-                <li>Calendar</li>
-                <li>Study Tips</li>
-                <li>Social Media</li>
-                <li>About</li>
-            </ul>
-        </nav>
-    </header>
+    <nav>
+        <ul>
+            <li>Home</li>
+            <li>Videos</li>
+            <li>Calendar</li>
+            <li>Study Tips</li>
+            <li>Social Media</li>
+            <li>About</li>
+        </ul>
+    </nav>
 
     <main>
         {% block content %}
