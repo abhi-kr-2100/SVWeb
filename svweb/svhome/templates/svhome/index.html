@@ -1,6 +1,12 @@
 {% extends "base.html" %}
 
+{% load static %}
+
 {% block title %}Home{% endblock %}
+
+{% block stylesheet %}
+{% static 'svhome/index.css' %}
+{% endblock %}
 
 {% block content %}
 <p id="welcome">Welcome to Study Vibes!</p>
