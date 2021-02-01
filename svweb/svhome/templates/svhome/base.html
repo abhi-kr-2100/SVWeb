@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title>{% block title %}{% endblock %} - Study Vibes</title>
+</head>
+
+<body>
+    <div id="banner">
+    </div>
+    <header>
+        <h1>Study Vibes</h1>
+        <nav>
+            <ul>
+                <li>Home</li>
+                <li>Videos</li>
+                <li>Calendar</li>
+                <li>Study Tips</li>
+                <li>Social Media</li>
+                <li>About</li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+</body>
+</html>
