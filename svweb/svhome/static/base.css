@@ -1,9 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
 
 body {
-    margin: 0;
-    padding: 0;
-
     display: flex;
     flex-direction: column;
 
@@ -12,13 +9,10 @@ body {
 
 #banner {
     width: 100vw;
-    margin: 0;
-    padding: 0;
 }
 
 #banner img {
     max-width: 100%;
-    margin: 0;
 }
 
 nav ul {
@@ -27,23 +21,28 @@ nav ul {
     list-style: none;
 
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
+
     width: 100vw;
+    height: 3.5em;
 
     background-color: #efddc9;
 }
 
 nav ul li {
-    display: inline-block;
-    padding: 1.5em;
+    display: table;
 
-    font-size: larger;
+    height: 100%;
 }
 
 nav ul li a {
     text-decoration: none;
-}
+    font-size: larger;
+    padding: 0 2em;
 
+    display: table-cell;
+    vertical-align: middle;
+}
 
 nav ul li:hover {
     background-color: #9ff6ed;
