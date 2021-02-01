@@ -10,7 +10,16 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
+
+from os import environ
+from dotenv import load_dotenv
+
 from pathlib import Path
+
+
+if 'RUNNING_LOCALLY' not in environ:
+    load_dotenv()
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -75,8 +84,12 @@ WSGI_APPLICATION = 'svweb.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': environ.get("DB_NAME"),
+        'USER': environ.get("DB_USER"),
+        'PASSWORD': environ.get("DB_PASS"),
+        'HOST': environ.get("DB_HOST"),
+        'PORT': environ.get("DB_PORT")
     }
 }
 
