@@ -38,7 +38,8 @@ if not running_locally:
 DEBUG = running_locally
 
 ALLOWED_HOSTS = [
-    'studyvibes.pythonanywhere.com'
+    'studyvibes.pythonanywhere.com',
+    '127.0.0.1'
 ]
 
 
