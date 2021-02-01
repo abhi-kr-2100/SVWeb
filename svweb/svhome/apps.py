@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class SvhomeConfig(AppConfig):
+class SVHomeConfig(AppConfig):
     name = 'svhome'
