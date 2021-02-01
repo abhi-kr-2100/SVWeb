@@ -3,6 +3,8 @@
 <html lang="en">
 <head>
     <title>{% block title %}{% endblock %} - Study Vibes</title>
+    <link rel="stylesheet" href="{% static 'base.css' %}">
+    <link rel="stylesheet" href="{% block stylesheet %}{% endblock %}">
 </head>
 
 <body>
