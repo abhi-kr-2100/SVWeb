@@ -5,13 +5,27 @@
 {% block title %}Study Calendar{% endblock %}
 
 {% block content %}
-<div class="d-none d-md-block">
-    <div class="ratio ratio-16x9">
-        <iframe src="https://calendar.google.com/calendar/embed?src=oro5litmqb6972jgi5bgp4dg4k@group.calendar.google.com&ctz=Europe/Luxembourg" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
-    </div>
+{% if err %}
+<div class="alert alert-danger mb-0" role="alert">
+    Timezone data for {{ err }} is not yet added. Please let us know that you want it to be added.
+</div>
+{% endif %}
+
+<div class="alert alert-info" role="alert">
+    Tip: Add <kbd>country_name</kbd> to the end of the URL to see the calendar in that country's timezone.
+    <br>
+    Current Timezone: {{ tz }}
 </div>
 
-<div class="d-block d-md-none">
-    <iframe src="https://calendar.google.com/calendar/embed?src=oro5litmqb6972jgi5bgp4dg4k@group.calendar.google.com&ctz=Europe/Luxembourg" style="border: 0" width="480" height="800" frameborder="0" scrolling="no"></iframe>
+<div class="container-fluid">
+    <div class="d-none d-md-block">
+        <div class="ratio ratio-16x9">
+            <iframe src="https://calendar.google.com/calendar/embed?src=oro5litmqb6972jgi5bgp4dg4k@group.calendar.google.com&ctz={{ tz }}" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+        </div>
+    </div>
+
+    <div class="d-block d-md-none">
+        <iframe src="https://calendar.google.com/calendar/embed?src=oro5litmqb6972jgi5bgp4dg4k@group.calendar.google.com&ctz={{ tz }}" style="border: 0" width="480" height="800" frameborder="0" scrolling="no"></iframe>
+    </div>
 </div>
 {% endblock %}
