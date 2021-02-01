@@ -4,10 +4,14 @@
 
 {% block title %}Study Calendar{% endblock %}
 
-{% block stylesheet %}
-{% static 'svhome/calendar.css' %}
-{% endblock %}
-
 {% block content %}
-<p id="welcome">This is the Study Calendar.</p>
+<div class="d-none d-md-block">
+    <div class="ratio ratio-16x9">
+        <iframe src="https://calendar.google.com/calendar/embed?src=oro5litmqb6972jgi5bgp4dg4k@group.calendar.google.com&ctz=Europe/Luxembourg" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+    </div>
+</div>
+
+<div class="d-block d-md-none">
+    <iframe src="https://calendar.google.com/calendar/embed?src=oro5litmqb6972jgi5bgp4dg4k@group.calendar.google.com&ctz=Europe/Luxembourg" style="border: 0" width="480" height="800" frameborder="0" scrolling="no"></iframe>
+</div>
 {% endblock %}
