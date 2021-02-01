@@ -17,8 +17,24 @@ from dotenv import load_dotenv
 from pathlib import Path
 
 
-if 'RUNNING_LOCALLY' not in environ:
+if 'RUNNING_LOCALLY' in environ:
     load_dotenv()
+    db_default = {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': environ.get("DB_NAME"),
+        'USER': environ.get("DB_USER"),
+        'PASSWORD': environ.get("DB_PASS"),
+        'HOST': environ.get("DB_HOST"),
+        'PORT': environ.get("DB_PORT")
+    }
+else:
+    db_default = {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': "studyvibes$StudyVibes",
+        'USER': "studyvibes",
+        'PASSWORD': '@J@Zf2LE3n3wHDz',
+        'HOST': "studyvibes.mysql.pythonanywhere-services.com",
+    }
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -84,14 +100,7 @@ WSGI_APPLICATION = 'svweb.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': environ.get("DB_NAME"),
-        'USER': environ.get("DB_USER"),
-        'PASSWORD': environ.get("DB_PASS"),
-        'HOST': environ.get("DB_HOST"),
-        'PORT': environ.get("DB_PORT")
-    }
+    'default': db_default
 }
 
 
