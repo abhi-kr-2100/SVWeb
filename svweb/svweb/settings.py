@@ -151,3 +151,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = path.join(BASE_DIR, "static/")
+
+
+TIMEZONES = {}
+with open('tzinfo.dat') as tzinfo:
+    for line in tzinfo:
+        country, tz = line.split()
+        TIMEZONES[country] = tz

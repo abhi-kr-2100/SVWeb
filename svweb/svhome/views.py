@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.http.response import HttpResponse
 from django.shortcuts import render
 
@@ -54,12 +55,4 @@ def about(request):
 def get_timezone(country):
     """Return the timezone for the given country."""
 
-    timezones = {
-        'america':  'US/Eastern',
-        'us':       'US/Eastern',
-        'belgium':  'Europe/Brussels',
-        'turkey':   'Europe/Istanbul',
-        'india':    'Asia/Kolkata'
-    }
-
-    return timezones.get(country.lower())
+    return settings.TIMEZONES.get(country.lower())
