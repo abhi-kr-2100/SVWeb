@@ -10,6 +10,7 @@ django = "*"
 pip = "*"
 psycopg2 = "*"
 python-dotenv = "*"
+mysqlclient = "*"
 
 [requires]
 python_version = "3.8"
