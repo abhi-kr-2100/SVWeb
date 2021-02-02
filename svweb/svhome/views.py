@@ -14,7 +14,8 @@ def calendar(request):
 
     return render(request, 'svhome/calendar.html', {
         'tz': 'Europe/Brussels',
-        'err': None
+        'err': None,
+        'timezones': sorted(c.capitalize() for c in settings.TIMEZONES.keys())
     })
 
 
@@ -25,12 +26,14 @@ def calendar_tz(request, country):
     if tz is not None:
         return render(request, 'svhome/calendar.html', {
             'tz': tz,
-            'err': None
+            'err': None,
+            'timezones': sorted(c.capitalize() for c in settings.TIMEZONES.keys())
         })
     else:
         return render(request, 'svhome/calendar.html', {
             'tz': 'Europe/Brussels',
-            'err': f'{country}'
+            'err': f'{country}',
+            'timezones': sorted(c.capitalize() for c in settings.TIMEZONES.keys())
         })
 
 
