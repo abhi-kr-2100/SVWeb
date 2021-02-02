@@ -11,30 +11,36 @@
 </div>
 {% endif %}
 
-<div class="dropdown container my-3">
-    <div class="row">
-        <div class="col align-self-start">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                Selected timezone: {{ tz }}
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                {% for t in timezones %}
-                <li><a class="dropdown-item" href="{% url 'svhome:calendar-tz' t %}">{{ t }}</a></li>
-                {% endfor %}
-            </ul>
-        </div>
-    </div>
+<div class="dropdown m-3">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+        Selected timezone: {{ tz }}
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        {% for t in timezones %}
+        <li><a class="dropdown-item" href="{% url 'svhome:calendar-tz' t %}">{{ t }}</a></li>
+        {% endfor %}
+    </ul>
 </div>
 
-<div class="container-fluid">
-    <div class="d-none d-md-block">
-        <div class="ratio ratio-16x9">
-            <iframe src="https://calendar.google.com/calendar/embed?src=oro5litmqb6972jgi5bgp4dg4k@group.calendar.google.com&ctz={{ tz }}" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
-        </div>
-    </div>
-
-    <div class="d-block d-md-none">
-        <iframe src="https://calendar.google.com/calendar/embed?src=oro5litmqb6972jgi5bgp4dg4k@group.calendar.google.com&ctz={{ tz }}" style="border: 0" width="480" height="800" frameborder="0" scrolling="no"></iframe>
-    </div>
+<div id="iframe-container" class="d-flex justify-content-center">
 </div>
+
+<script>
+    (() => {
+        const padding = 25;
+
+        let calendarIframe = document.createElement("iframe");
+        calendarIframe.setAttribute("src", "https://calendar.google.com/calendar/embed?src=oro5litmqb6972jgi5bgp4dg4k@group.calendar.google.com&ctz={{ tz }}");
+        
+        calendarIframe.setAttribute("width", String(screen.width - padding));
+        if (screen.width < screen.height) { // 4:5 ratio
+            calendarIframe.setAttribute("height", String(screen.width * 5.0 / 4.0));
+        } else {    // 16:9
+            calendarIframe.setAttribute("height", String(screen.width * 9.0 / 16.0));
+        }
+
+        let containerDiv = document.getElementById("iframe-container");
+        containerDiv.appendChild(calendarIframe);
+    })();
+</script>
 {% endblock %}
