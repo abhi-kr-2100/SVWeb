@@ -2,6 +2,9 @@ from django.conf import settings
 from django.shortcuts import render
 
 
+from .models import StudyTip
+
+
 def index(request):
     """Display the homepage."""
 
@@ -27,7 +30,13 @@ def calendar(request, country="Belgium"):
 def study_tips(request):
     """Display a list of saved study tips."""
 
-    return render(request, 'svhome/study_tips.html', {})
+    tips = StudyTip.objects.all()
+    if tips:
+        ctx = {'tips': tips}
+    else:
+        ctx = {}
+
+    return render(request, 'svhome/study_tips.html', ctx)
 
 
 def social_media(request):
