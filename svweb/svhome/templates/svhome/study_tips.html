@@ -9,5 +9,18 @@
 {% endblock %}
 
 {% block content %}
-<p id="welcome">Study Tips!</p>
+{% if tips %}
+    <ul class="list-group list-group-flush">
+        {% for t in tips %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <span class="badge bg-primary rounded-pill">{{ forloop.counter }}</span>
+                {{ t.text }}
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+<div class="container">
+    <p class="display-1">404! No tips available at this time &gt;_&lt;</p>
+</div>
+{% endif %}
 {% endblock %}
